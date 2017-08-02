@@ -6,8 +6,9 @@
 //
 
 #import "RNMediaPlayer.h"
-#import "RCTLog.h"
-#import "RCTConvert.h"
+#import "React/RCTLog.h"
+#import "React/RCTConvert.h"
+
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
 
@@ -31,12 +32,8 @@ RCT_EXPORT_METHOD(open:(NSDictionary *)options)
   // missing: option to disable autoplay
 
   _uri = [options objectForKey:@"uri"];
-
-  NSString* mediaFilePath = [[NSBundle mainBundle] pathForResource:_uri ofType:nil];
-  NSAssert(mediaFilePath, @"Media not found: %@", _uri);
-
-  // refactor: implement an option to load network asset instead
-  NSURL *fileURL = [NSURL fileURLWithPath:mediaFilePath];
+  NSString *encodedString = [_uri stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+  NSURL *fileURL = [[NSURL alloc] initWithString:encodedString];
 
   dispatch_async(dispatch_get_main_queue(), ^{
 
