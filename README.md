@@ -2,7 +2,7 @@
 Simple full screen media player for React Native. 
 
 ## Installation
-Install using npm with `npm install --save react-native-mediaplayer`. React Native >=0.4.0 is needed.
+Install using npm with `npm install --save react-native-mplayer`. React Native >=0.44.0 is needed.
 
 1. Using Xcode open the project navigator, right click and choose `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-mediaplayer` and add `RNMediaPlayer.h` and `RNMediaPlayer.m`
